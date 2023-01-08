@@ -9,6 +9,6 @@ class RoomController extends Controller
 {
     public function index(Room $room)
     {
-        return $room->get();
+        return view('RLR/rooms')->with(['rooms'=> $room->get()]);
     }
 }
