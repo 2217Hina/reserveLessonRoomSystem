@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('room_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('room_id');
-            $table->dateTime('dateTime_id');
+            $table->foreignId('user_id');
+            $table->foreignId('room_id');
+            $table->dateTime('dateTime');
             $table->timestamps();
         });
     }

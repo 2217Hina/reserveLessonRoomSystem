@@ -10,7 +10,11 @@
       @foreach($users as $user)
       
         <h1>{{$user->name}}</h1>
-      
+       
+        @foreach($user->rooms as $room)
+        
+          <p>{{$room->piano}}</p>
+        @endforeach
       @endforeach
         
         
