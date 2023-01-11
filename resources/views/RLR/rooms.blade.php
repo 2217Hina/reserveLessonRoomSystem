@@ -11,8 +11,10 @@
         @foreach ($rooms as $room)
         
         <h1>{{$room->piano}}</h1>
-        
-        
+        <h1>{{$room->room_num}}</h1>
+        @foreach($room->users as $user)
+        <p>{{$room->user}}</p>
+      @endforeach
         @endforeach
         
         
