@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('room_id');
-            $table->dateTime('dateTime');
+            $table->date('date');
+            $table->time('startTime');
+            $table->boolean('is_reserved');
             $table->timestamps();
         });
     }
