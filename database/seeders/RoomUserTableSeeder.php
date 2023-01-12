@@ -19,13 +19,19 @@ class RoomUserTableSeeder extends Seeder
         
             'user_id'=> '1',
             'room_id' => '1',
-           'dateTime'=>'20220111'
+            'date'=>'20230112',
+            'startTime'=>'10:00:00',
+            'is_reserved'=>'1'
+            
+        
             ]);
-        DB::table('room_user')->insert([
+       DB::table('room_user')->insert([
         
             'user_id'=> '1',
             'room_id' => '1',
-           'dateTime'=>'20220111'
-            ]);
+            'date'=>'20230112',
+            'startTime'=>'10:00:00',
+            'is_reserved'=>'0'
+           ]);  
     }
 }
