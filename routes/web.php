@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\TopController;
+use App\Http\Controllers\RLRController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +18,6 @@ use App\Http\Controllers\TopController;
 Route::get('/rooms', [RoomController::class, 'index']);
 Route::get('/users', [UserController::class, 'index']);
 
-Route::get('/top', [TopController::class, 'top']);
+Route::get('/rlr/top', [RLRController::class, 'top']);
+Route::get('/rlr/register', [RLRController::class, 'register']);
+Route::get('/rlr/myPagep', [RLRController::class, 'myPagep']);

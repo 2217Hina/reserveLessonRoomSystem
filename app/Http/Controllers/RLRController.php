@@ -7,7 +7,25 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
-class Controller extends BaseController
+class RLRController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    
+    public function top()
+    {
+        return view('RLR/top');
+        
+    }
+    
+    public function register()
+    {
+        return view('RLR/register');
+    }
+    
+    public function myPage()
+    {
+        return view('RLR/myPage');
+    }
+        
+
 }
