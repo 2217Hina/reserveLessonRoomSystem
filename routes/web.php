@@ -19,5 +19,14 @@ Route::get('/rooms', [RoomController::class, 'index']);
 Route::get('/users', [UserController::class, 'index']);
 
 Route::get('/rlr/top', [RLRController::class, 'top']);
+
+
 Route::get('/rlr/register', [RLRController::class, 'register']);
-Route::get('/rlr/myPagep', [RLRController::class, 'myPagep']);
+
+Route::POST('/rlr/register/confirm',[RLRController::class, 'confirm']);
+
+Route::get('/rlr/register/confirm/{user}',[RLRController::class, 'confirmUserInfo']);
+
+Route::POST('/rlr/register/complete',[RLRController::class, 'complete']);
+
+Route::get('/rlr/myPage', [RLRController::class, 'myPage']);
