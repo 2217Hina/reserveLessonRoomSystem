@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TopController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,3 +17,5 @@ use App\Http\Controllers\UserController;
 */
 Route::get('/rooms', [RoomController::class, 'index']);
 Route::get('/users', [UserController::class, 'index']);
+
+Route::get('/top', [TopController::class, 'top']);
