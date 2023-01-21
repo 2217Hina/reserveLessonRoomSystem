@@ -42,7 +42,6 @@
                         </div>
                         
                         <div class="password">
-                             <h2>パスワード</h2>
                               <input  name="user[password]"   value={{$user["password"]}} type="hidden">
                          </div>
             
@@ -54,6 +53,6 @@
        
             </div>
         </form>
-        <a href="/rlr/register">戻る</a>
+        <a href="/rlr/register">再度入力</a>
     </body>
 </html>

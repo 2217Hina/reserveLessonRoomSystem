@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Validator;
+use App\Http\Requests\RLRRequest;
 
 class RLRController extends BaseController
 {
@@ -26,7 +27,7 @@ class RLRController extends BaseController
     }
     
         
-       public function confirm(Request $request, User $user)
+       public function confirm(RLRRequest $request, User $user)
     {
       
         $input = $request['user'];
@@ -41,6 +42,8 @@ class RLRController extends BaseController
     
     public function complete(Request $request,User $user)
     {
+         
+       
          $input = $request['user'];
         
         $user->fill($input)->save();
