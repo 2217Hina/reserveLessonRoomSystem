@@ -35,7 +35,9 @@
                         </div>
            
                      
-                      
+                    <h2 class='myPage'>
+                     <a href="/rlr/myPage">マイページに移動</a>
+                　　</h2>   
            
        
             </div>

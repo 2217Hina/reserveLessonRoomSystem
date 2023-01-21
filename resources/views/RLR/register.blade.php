@@ -12,59 +12,64 @@
             @csrf
             <div class="name">
                 <h2>氏名</h2>
-                <input type="text" name="user[name]" placeholder="山田花子"/>
+                <input type="text" name="user[name]" placeholder="山田花子" value="{{ old('user.name') }}"/>
+                <p class="name__error" style="color:red">{{ $errors->first('user.name') }}</p>
             </div>
             
             <div class="studentNum">
                 <h2>学籍番号</h2>
-                <input type="text" name="user[student_num]" placeholder="21180122">
+                <input type="text" name="user[student_num]" placeholder="21180122" value="{{ old('user.student_num') }}">
+                 <p class="student_num__error" style="color:red">{{ $errors->first('user.student_num') }}</p>
             </div>
             
              <div class="mail">
                 <h2>メールアドレス</h2>
-               <input type="text" name="user[email]" placeholder="test@test">
+               <input type="text" name="user[email]" placeholder="test@test" value="{{ old('user.email') }}">
+                <p class="email__error" style="color:red">{{ $errors->first('user.email') }}</p>
             </div>
             
              <div class="major">
                 <h2>専攻</h2>
-               <select name="user[major]">
-                  <option value="0">ピアノ</option>
-                  <option value="1">オルガン</option>
-                  <option value="2">ヴァイオリン</option>
-                  <option value="0">ヴィオラ</option>
-                  <option value="1">チェロ</option>
-                  <option value="2">コントラバス</option>
-                  <option value="0">ハープ</option>
-                  <option value="1">フルート</option>
-                  <option value="2">オーボエ</option>
-                  <option value="0">クラリネット</option>
-                  <option value="1">ファゴット</option>
-                  <option value="2">サクソフォーン</option>
-                  <option value="0">ホルン</option>
-                  <option value="1">トランペット</option>
-                  <option value="2">トロンボーン</option>
-                  <option value="0">ユーフォニアム</option>
-                  <option value="1">チューバ</option>
-                  <option value="2">打楽器</option>
-                  <option value="0">古楽</option>
-                  <option value="1">邦楽</option>
-                  <option value="2">楽理</option>
+               <select name="user[major]" value="{{ old('user.major') }}">
+                  <option value="ピアノ">ピアノ</option>
+                  <option value="オルガン">オルガン</option>
+                  <option value="ヴァイオリン">ヴァイオリン</option>
+                  <option value="ヴィオラ">ヴィオラ</option>
+                  <option value="チェロ">チェロ</option>
+                  <option value="コントラバス">コントラバス</option>
+                  <option value="ハープ">ハープ</option>
+                  <option value="フルート">フルート</option>
+                  <option value="オーボエ">オーボエ</option>
+                  <option value="クラリネット">クラリネット</option>
+                  <option value="ファゴット">ファゴット</option>
+                  <option value="サクソフォーン">サクソフォーン</option>
+                  <option value="ホルン">ホルン</option>
+                  <option value="トランペット">トランペット</option>
+                  <option value="トロンボーン">トロンボーン</option>
+                  <option value="ユーフォニアム">ユーフォニアム</option>
+                  <option value="チューバ">チューバ</option>
+                  <option value="打楽器">打楽器</option>
+                  <option value="古楽">古楽</option>
+                  <option value="邦楽">邦楽</option>
+                  <option value="楽理">楽理</option>
                </select>
             </div>
             
              <div class="professor">
                 <h2>門下</h2>
-               <input type="text" name="user[professor]" placeholder="〇〇教授">
+               <input type="text" name="user[professor]" placeholder="〇〇教授"  value="{{ old('user.professor') }}">
+                <p class="profeddor__error" style="color:red">{{ $errors->first('user.professor') }}</p>
             </div>
             
-             <div class="password">
+             <div class="password" >
                 <h2>パスワード</h2>
                <input type="text" name="user[password]" >
+                <p class="password__error" style="color:red">{{ $errors->first('user.password') }}</p>
             </div>
             
              <div class="mail">
                 <h2>パスワード確認</h2>
-                <input type="text" name="user[confirmPassword]">
+                <input type="text" name="user[password_confirmation]">
             </div>
             
             <input type="submit" value="登録"/>
