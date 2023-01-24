@@ -24,12 +24,12 @@ class RLRRequest extends FormRequest
     public function rules()
     {
         return [
-           'user.name' => 'required|',
+           //'user.name' => 'required|',
            'user.student_num' => 'required|numeric',
-           'user.mail'=>'required|email',
+          // 'user.mail'=>'required|email',
            'user.major'=>'required',
            'user.professor' =>'required',
-           'user.password' => 'required|confirmed',
+           //'user.password' => 'required|confirmed',
           // 'password_confirmation' => 'required',
         ];
     }

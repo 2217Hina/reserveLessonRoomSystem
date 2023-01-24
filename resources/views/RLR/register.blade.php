@@ -10,11 +10,7 @@
         <h2>ユーザー情報登録</h2>
          <form action="/rlr/register/confirm" method="POST">
             @csrf
-            <div class="name">
-                <h2>氏名</h2>
-                <input type="text" name="user[name]" placeholder="山田花子" value="{{ old('user.name') }}"/>
-                <p class="name__error" style="color:red">{{ $errors->first('user.name') }}</p>
-            </div>
+           
             
             <div class="studentNum">
                 <h2>学籍番号</h2>
@@ -22,11 +18,7 @@
                  <p class="student_num__error" style="color:red">{{ $errors->first('user.student_num') }}</p>
             </div>
             
-             <div class="mail">
-                <h2>メールアドレス</h2>
-               <input type="text" name="user[email]" placeholder="test@test" value="{{ old('user.email') }}">
-                <p class="email__error" style="color:red">{{ $errors->first('user.email') }}</p>
-            </div>
+             
             
              <div class="major">
                 <h2>専攻</h2>
@@ -61,16 +53,7 @@
                 <p class="profeddor__error" style="color:red">{{ $errors->first('user.professor') }}</p>
             </div>
             
-             <div class="password" >
-                <h2>パスワード</h2>
-               <input type="text" name="user[password]" >
-                <p class="password__error" style="color:red">{{ $errors->first('user.password') }}</p>
-            </div>
             
-             <div class="mail">
-                <h2>パスワード確認</h2>
-                <input type="text" name="user[password_confirmation]">
-            </div>
             
             <input type="submit" value="登録"/>
             
