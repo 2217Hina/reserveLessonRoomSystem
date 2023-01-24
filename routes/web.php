@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RLRController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Breeze
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,8 +36,22 @@ require __DIR__.'/auth.php';
 
 
 
-
-
+//ログイン画面からマイページに遷移
 Route::get('/rlr/myPage', function () {
     return view('RLR/myPage');
 });
+
+
+
+//マイページから予約画面に遷移
+Route::get('/rlr/reserve', [RLRController::class, 'reserve']);
+//マイページから予約履歴に遷移
+Route::get('/rlr/history', [RLRController::class, 'history']);
+//マイページからユーザー登録に遷移
+Route::get('/rlr/register', [RLRController::class, 'register']);
+
+
+//ユーザー情報登録
+Route::POST('/rlr/register/confirm',[RLRController::class, 'confirm']);
+Route::get('/rlr/register/confirm/{user}',[RLRController::class, 'confirmUserInfo']);
+Route::POST('/rlr/register/complete',[RLRController::class, 'complete']);

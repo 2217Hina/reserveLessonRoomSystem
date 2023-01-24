@@ -18,9 +18,15 @@ class RLRController extends Controller
 {
     
     
-    public function top()
+    public function reserve()
     {
-        return view('RLR/top');
+        return view('RLR/reserve');
+        
+    }
+    
+    public function history()
+    {
+        return view('RLR/history');
         
     }
     
