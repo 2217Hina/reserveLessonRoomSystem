@@ -44,7 +44,7 @@ Route::get('/rlr/myPage', function () {
 
 
 //マイページから予約画面に遷移
-Route::get('/rlr/reserve', [RLRController::class, 'reserve']);
+Route::get('/rlr/reserve', [RLRController::class, 'reserveDate']);
 //マイページから予約履歴に遷移
 Route::get('/rlr/history', [RLRController::class, 'history']);
 //マイページからユーザー登録に遷移
@@ -55,3 +55,7 @@ Route::get('/rlr/register', [RLRController::class, 'register']);
 Route::POST('/rlr/register/confirm',[RLRController::class, 'confirm']);
 Route::get('/rlr/register/confirm/{user}',[RLRController::class, 'confirmUserInfo']);
 Route::POST('/rlr/register/complete',[RLRController::class, 'complete']);
+
+//予約画面
+Route::POST('/rlr/reserve/timeroom', [RLRController::class, 'timeroom']);
+

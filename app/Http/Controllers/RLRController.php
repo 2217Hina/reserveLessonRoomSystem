@@ -13,14 +13,26 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Validator;
 use App\Http\Requests\RLRRequest;
+use App\Models\Reserve;
 
 class RLRController extends Controller
 {
     
+    //予約
     
-    public function reserve()
+    public function reserveDate()
     {
-        return view('RLR/reserve');
+        
+        return view('RLR/reserveDate');
+        
+    }
+    
+    public function timeroom(Request $request, Reserve $reserve)
+    {
+        session(["test" . auth()->id()=>$request["reserve"]["date"]]);
+        //dd(session("test" . auth()->id()));
+        return view('RLR/reserveTimeRoom');
+        
         
     }
     
