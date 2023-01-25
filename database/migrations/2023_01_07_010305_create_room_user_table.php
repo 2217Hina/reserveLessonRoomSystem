@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreignId('room_id');
             $table->date('date');
             $table->time('startTime');
+            $table->integer('numOfPeople');
+            $table->string('member');
             $table->boolean('is_reserved');
             $table->timestamps();
         });
