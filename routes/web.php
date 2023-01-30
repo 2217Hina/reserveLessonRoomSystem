@@ -57,5 +57,9 @@ Route::get('/rlr/register/confirm/{user}',[RLRController::class, 'confirmUserInf
 Route::POST('/rlr/register/complete',[RLRController::class, 'complete']);
 
 //予約画面
-Route::POST('/rlr/reserve/timeroom', [RLRController::class, 'timeroom']);
+Route::POST('/rlr/reserve/time', [RLRController::class, 'time']);
+Route::POST('/rlr/reserve/room', [RLRController::class, 'room']);
+Route::POST('/rlr/reserve/detail', [RLRController::class, 'detail']);
+Route::POST('/rlr/reserve/confirm', [RLRController::class, 'reserve_confirm']);
+Route::POST('/rlr/reserve/complete', [RLRController::class, 'reserve_complete']);
 
