@@ -45,8 +45,7 @@ Route::get('/rlr/myPage', function () {
 
 //マイページから予約画面に遷移
 Route::get('/rlr/reserve', [RLRController::class, 'reserveDate']);
-//マイページから予約履歴に遷移
-Route::get('/rlr/history', [RLRController::class, 'history']);
+
 //マイページからユーザー登録に遷移
 Route::get('/rlr/register', [RLRController::class, 'register']);
 
@@ -63,3 +62,8 @@ Route::POST('/rlr/reserve/detail', [RLRController::class, 'detail']);
 Route::POST('/rlr/reserve/confirm', [RLRController::class, 'reserve_confirm']);
 Route::POST('/rlr/reserve/complete', [RLRController::class, 'reserve_complete']);
 
+
+//マイページから予約履歴に遷移
+Route::get('/rlr/history', [RLRController::class, 'history_all']);
+//予約履歴表示・キャンセル
+Route::delete('/rlr/history/cancel/{reserve}', [RLRController::class, 'cancel']);

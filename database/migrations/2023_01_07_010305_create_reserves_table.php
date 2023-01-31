@@ -23,6 +23,7 @@ return new class extends Migration
            
             $table->boolean('is_reserved')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
