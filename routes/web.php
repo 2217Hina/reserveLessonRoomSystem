@@ -43,18 +43,18 @@ Route::get('/rlr/myPage', function () {
 
 
 
-//マイページから予約画面に遷移
-Route::get('/rlr/reserve', [RLRController::class, 'reserveDate']);
+
 
 //マイページからユーザー登録に遷移
 Route::get('/rlr/register', [RLRController::class, 'register']);
-
-
 //ユーザー情報登録
 Route::POST('/rlr/register/confirm',[RLRController::class, 'confirm']);
 Route::get('/rlr/register/confirm/{user}',[RLRController::class, 'confirmUserInfo']);
 Route::POST('/rlr/register/complete',[RLRController::class, 'complete']);
 
+
+//マイページから予約画面に遷移
+Route::get('/rlr/reserve', [RLRController::class, 'reserveDate']);
 //予約画面
 Route::POST('/rlr/reserve/time', [RLRController::class, 'time']);
 Route::POST('/rlr/reserve/room', [RLRController::class, 'room']);
@@ -67,3 +67,7 @@ Route::POST('/rlr/reserve/complete', [RLRController::class, 'reserve_complete'])
 Route::get('/rlr/history', [RLRController::class, 'history_all']);
 //予約履歴表示・キャンセル
 Route::delete('/rlr/history/cancel/{reserve}', [RLRController::class, 'cancel']);
+
+//管理者画面（日付）
+Route::get('/rlr/manage/date', [RLRController::class, 'manage_date']);
+Route::POST('/rlr/manage/detail', [RLRController::class, 'manage_detail']);

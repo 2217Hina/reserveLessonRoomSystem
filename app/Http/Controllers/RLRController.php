@@ -111,14 +111,11 @@ class RLRController extends Controller
     public function reserve_complete(Request $request,Reserve $reserve)
     {
        
-       $input = $request['reserve'];
-     
+        $input = $request['reserve'];
       
-      // dd($reserved_room);
-      
-      $reserve["room_id"]= Room::where('room_num',$input["room_id"])->first()->id;
+        $reserve["room_id"]= Room::where('room_num',$input["room_id"])->first()->id;
        
-       $reserve->fill($input)->save();
+        $reserve->fill($input)->save();
        
        return view('RLR/reserve_complete')->with(['reserve'=>$reserve]);
     }
@@ -167,7 +164,7 @@ class RLRController extends Controller
     {
          
        
-         $input = $request['user'];
+        $input = $request['user'];
         
         $user->fill($input)->save();
         return view('RLR/register_complete')->with(['user'=>$user]);
@@ -177,5 +174,42 @@ class RLRController extends Controller
      public function myPage()
     {
         return view('RLR/myPage');
+    }
+    
+    
+    
+    
+//管理者画面（日付）
+    public function manage_date()
+    {
+        return view('RLR/manageDate');
+    }
+    
+//管理者画面（詳細）
+    public function manage_detail(Request $request,Reserve $reserve,User $user,Room $room)
+    {
+        $date = $request['date'];
+        $details = $reserve->where('date',$date)->get();
+        $infos = array();
+        foreach($details as $detail)
+        {
+          $user_id = $detail->user_id;
+          $user_name = $user->find($user_id)->name;
+          
+          $room_id = $detail->room_id;
+          $room_num = $room->find($room_id)->room_num;
+          
+          $infos[] = array(
+              "user_name" => $user_name,
+              "startTime" => $detail->startTime,
+              "room_num" => $room_num,
+              "numOfPeople" => $detail->numOfPeople
+              );
+          
+        }
+      
+      
+      
+      return view('RLR/manageDetail')->with(['infoss'=>$infos]);
     }
 }
