@@ -101,6 +101,7 @@ class RLRController extends Controller
         $date = $request->session()->get("date" . auth()->id());
         $startTime =  $request->session()->get("startTime" . auth()->id());
         $room =  $request->session()->get("room" . auth()->id());
+       
         $numOfPeople = $request->session()->get("numOfPeople" . auth()->id());
         $reserve = array('date'=>$date,'startTime'=>$startTime,'room'=>$room,'numOfPeople'=>$numOfPeople);
         
@@ -112,12 +113,12 @@ class RLRController extends Controller
     {
        
         $input = $request['reserve'];
-      
-        $reserve["room_id"]= Room::where('room_num',$input["room_id"])->first()->id;
-       
+    
+        $reserve["room_id"]= Room::where('room_num',$input["room_num"])->first()->id;
+    
         $reserve->fill($input)->save();
-       
-       return view('RLR/reserve_complete')->with(['reserve'=>$reserve]);
+    
+       return view('RLR/reserve_complete')->with(['reserve'=>$reserve,'room_num'=>$input['room_num']]);
     }
     
 //予約履歴一覧表示

@@ -1,41 +1,51 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>RLR</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-    <body>
-     
-            <h1 class="title">この内容で登録しました</h1>
-                <div class="content">
+<x-app-layout>
+    <x-slot name="header">
+        　（ヘッダー名）
+    </x-slot>
+  
+
+        
+       
+         <main>
+            <div class="flex flex-col w-1/2 mt-10 m-auto">
+           
+                <div class="text-3xl w-2/3">   
+                <h1 class="title">この内容で登録しました</h1>
+                </div>
+             
+               <div class="m-auto text-3xl w-1/3 mt-12 ">
         
                        
                         
                         <div class='student_num'>
-                            <h2>学籍番号</h2>
-                            <h3>{{ $user["student_num"] }}</3>
+                            <h2>学籍番号:{{ $user["student_num"] }}</h2>
+                          
                         </div>
                         
                         
                         <div class='major'>
-                            <h2>専攻</h2>
-                           <h3>{{  $user["major"] }}</h3>
+                            <h2>専攻:{{  $user["major"] }}</h2>
+                          
                         </div>
                         
                         <div class='professor'>
-                            <h2>門下</h2>
-                           <h3>{{$user["professor"]}}</h3>
+                            <h2>門下:{{$user["professor"]}}</h2>
+                          
                         </div>
            
                      
-                    <h2 class='myPage'>
-                     <a href="/rlr/myPage">マイページに移動</a>
-                　　</h2>   
+                     
+                    <div class=" text-2xl mt-36 m-auto">
+                        <span class=" text-blue-500 rounded-xl ">
+                        <h2 class='myPage'>
+                         <a href="/">マイページに移動</a>
+                    　　</h2>   
+                    </div>
            
        
             </div>
        
-    </body>
-</html>
+       </div>
+    </main>
+     
+     </x-app-layout>
