@@ -1,61 +1,70 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>RLR</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-    <body>
+<x-app-layout>
+    <x-slot name="header">
+        　（ヘッダー名）
+    </x-slot>
+  
+
         
-         <form action="/rlr/reserve/complete" method="POST">
-             @csrf
-            <h1 class="title">この内容で登録しますか？</h1>
-                <div class="content">
-        
-        
-                         <div class='user_id'>
-                           
-                          
-                             <input name="reserve[user_id]" value={{ Auth::id() }} type="hidden">
-                        </div>
-        
-        
-                         <div class='date'>
-                            <h2>日付</h2>
-                            <h3>{{ $reserve["date"] }}</3>
-                             <input name="reserve[date]" value={{ $reserve["date"] }} type="hidden">
-                        </div>
-                        
-                       
-                        <div class='time'>
-                            <h2>時間</h2>
-                           <h3>{{ $reserve["startTime"] }}~</h3>
-                            <input name="reserve[startTime]" value={{ $reserve["startTime"] }} type="hidden">
-                        </div>
-                        
-                        <div class='room'>
-                            <h2>部屋</h2>
-                           <h3>{{$reserve["room"]}}</h3>
-                            <input name="reserve[room_id]" value={{$reserve["room"]}} type="hidden">
-                        </div>
-                        
-                          <div class='numOfPeople'>
-                            <h2>人数</h2>
-                           <h3>{{$reserve["numOfPeople"]}}</h3>
-                            <input name="reserve[numOfPeople]" value={{$reserve["numOfPeople"]}} type="hidden">
-                        </div>
-                       
-                        
-            
-                         
-           
-                      
-                       <input type="submit" value="予約を確定" />
-           
        
-            </div>
-        </form>
-        <a href="/rlr/reserve">再度入力</a>
-    </body>
-</html>
+         <main>
+               <div class="flex flex-col w-1/2 mt-10 m-auto">
+        
+                 <form action="/rlr/reserve/complete" method="POST">
+                     @csrf
+                     
+                        <div class="text-4xl text-left">
+                            <h1 class="title">この内容で登録しますか？</h1>
+                        </div>
+                        
+                        <div class="text-left">
+                               <div class="m-auto text-2xl w-1/3 mt-12 ">
+                
+                                     <div class='user_id'>
+                                       
+                                      
+                                         <input name="reserve[user_id]" value={{ Auth::id() }} type="hidden">
+                                    </div>
+                    
+                    
+                                     <div class='date'>
+                                        <h2>日付:{{ $reserve["date"] }}</h2>
+                                     
+                                         <input name="reserve[date]" value={{ $reserve["date"] }} type="hidden">
+                                    </div>
+                                    
+                                   
+                                    <div class='time'>
+                                        <h2>時間:{{ $reserve["startTime"] }}~</h2>
+                                      
+                                        <input name="reserve[startTime]" value={{ $reserve["startTime"] }} type="hidden">
+                                    </div>
+                                    
+                                    <div class='room'>
+                                        <h2>部屋:{{$reserve["room"]}}</h2>
+                                      
+                                        <input name="reserve[room_num]" value={{$reserve["room"]}} type="hidden">
+                                    </div>
+                                    
+                                      <div class='numOfPeople'>
+                                        <h2>人数:{{$reserve["numOfPeople"]}}</h2>
+                                      
+                                        <input name="reserve[numOfPeople]" value={{$reserve["numOfPeople"]}} type="hidden">
+                                    </div>
+                               
+                                
+                    
+                                 
+                    <div class="text-center">
+                              
+                                <input class="mt-20  text-xl border border-indigo-600 bg-blue-2" type="submit" value="予約を確定" />
+                   
+                </div>
+                             </div>
+                         </form>
+                         <div class="text-center">
+                            <a href="/rlr/reserve" class="mt-36 text-red-500">再度入力</a>
+                        </div>
+                 </div>
+    </main>
+     
+     </x-app-layout>
