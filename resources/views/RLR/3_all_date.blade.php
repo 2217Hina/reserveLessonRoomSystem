@@ -4,19 +4,14 @@ use Carbon\Carbon;
  $now = Carbon::now();
 ?>
 
-
 <x-app-layout>
     <x-slot name="header">
-        　予約履歴
+        　（ヘッダー名）
     </x-slot>
-  
-
+ 
         
-       
-         <main>
-              
-          
-            <form action="/rlr/manage/detail" method="POST">
+        
+            <form action="/3_all_history" method="POST">
             @csrf
                 
                 <h2>閲覧する日付を選択</h2>
@@ -34,7 +29,4 @@ use Carbon\Carbon;
            
                </form>
                
-                        
-     </main>
-     
-     </x-app-layout>
+                 </x-app-layout>

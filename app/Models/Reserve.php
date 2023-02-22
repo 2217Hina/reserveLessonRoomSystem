@@ -13,35 +13,28 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
-
 class Reserve extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    use SoftDeletes;
-    
-    protected $table = "reserves";
-    protected $fillable = [
-        'user_id',
-        'date',
-        'startTime',
-        'room',
-        'numOfPeople',
-       
-    ];
+
+     protected $fillable = [
+            'user_id',
+            'room_id',
+            'date',
+            'startTime',
+           
+        ];
+      
+    public function  room()
+    {
+        return $this->belongsTo(Room::class);
+    }
     
     public function getByLimit(int $limit_count = 10)
     {
         $me = Auth::user()->id;
-        return $this->where('user_id',$me)->orderBy('date', 'DESC')->get();
-
+        return $this->where('user_id',$me)->with('room')->orderBy('date', 'DESC')->get();
+    
     }
 
-    // public function getPastReserve(int $limit_count = 10)
-    // {
-    //     $me = Auth::user()->id;
-    //     return $this->where('user_id',$me)->orderBy('date', 'DESC')->get();
-
-    // }
 }
-
