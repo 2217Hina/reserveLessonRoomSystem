@@ -4,18 +4,13 @@ use Carbon\Carbon;
  $now = Carbon::now();
 ?>
 
-
 <x-app-layout>
     <x-slot name="header">
-        　予約履歴
+        　（ヘッダー名）
     </x-slot>
-  
-
+ 
         
-       
-         <main>
-             
-              <div class="flex flex-col w-1/2 mt-10 m-auto">
+       <div class="flex flex-col w-1/2 mt-10 m-auto">
                   
                    <div class="text-3xl w-2/3">   
                     <h1 class="title">予約履歴</h1>
@@ -23,7 +18,7 @@ use Carbon\Carbon;
                     
                     <div class=" text-2xl mt-10 m-auto">
                         <span class=" text-blue-500 rounded-xl ">
-                      <a href="/">マイページに戻る</a>
+                      <a href="/mypage">マイページに戻る</a>
             　    　</h2> 
             　    　</span>
                      </div>
@@ -39,7 +34,7 @@ use Carbon\Carbon;
                             
                             <!--キャンセル機能-->
                             <div class="text-right">
-                            <form action="/rlr/history/cancel/{{ $my_reserve->id }}" id="form_{{ $my_reserve->id }}" method="post">
+                            <form action="/3_cancel/{{ $my_reserve->id }}" id="form_{{ $my_reserve->id }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button class="border border-black bg-black-200 rounded-xl" type="button" onclick="cancel({{ $my_reserve->id }})">キャンセル</button> 
@@ -59,7 +54,7 @@ use Carbon\Carbon;
                  
                    <div class=" text-2xl mt-10 m-auto">
                         <span class=" text-blue-500 rounded-xl ">
-                      <a href="/">マイページに戻る</a>
+                      <a href="/mypage">マイページに戻る</a>
             　    　</h2> 
             　    　</span>
                      </div>
@@ -74,6 +69,6 @@ use Carbon\Carbon;
                 </script>
               
          </div>                
-    </main>
-     
-     </x-app-layout>
+        
+        
+    </x-app-layout>

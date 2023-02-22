@@ -1,30 +1,24 @@
 <x-app-layout>
     <x-slot name="header">
-        　練習室予約
+        　（ヘッダー名）
     </x-slot>
-  
-
-        
-       
-         <main>
-              
-            <div class="flex flex-col w-1/2 mt-10 m-auto">
-                  <form action="/rlr/reserve/detail" method="POST">
+ 
+         <form action="/3_reserve_comfirm" method="POST">
                     @csrf
+                    
                       <div class="text-4xl text-left">
                          <h2>予約する部屋を選んでください</h2>
                       </div>
                 
-                        <div class="text-center">
-                               <div class="m-auto text-2xl w-1/3 mt-12 ">
+                       
                       
                                 
                                         <select name="reserve[room]"> 
                                        
                                          @foreach( $empty_rooms as  $empty_room)
-                                          <option value=" {{ $empty_room->room_num}}">
+                                          <option value=" {{ $empty_room->number}}">
                                               
-                                              {{ $empty_room->room_num}}(最大人数：{{ $empty_room->capacity}}人)
+                                              {{ $empty_room->number}}(最大人数：{{ $empty_room->capacity}}人)
                                               
                                            
                                               
@@ -32,8 +26,10 @@
                                            
                                          @endforeach
                                     
-                                </div>
+                                </select>
                                 
+                                
+                               
                             
                             
                             
@@ -46,10 +42,5 @@
                            </div>
                    
                      </form>
-           
-           
-             </div>
-       
-    </main>
-     
-     </x-app-layout>
+             
+   </x-app-layout>

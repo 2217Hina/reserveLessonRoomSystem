@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RoomController;
-use App\Http\Controllers\UserController;
+use Inertia\Inertia;
 use App\Http\Controllers\RLRController;
 
 /*
@@ -17,60 +17,113 @@ use App\Http\Controllers\RLRController;
 |
 */
 
-//Breeze
 // Route::get('/', function () {
-//     return view('welcome');
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
 // });
 
 // Route::get('/dashboard', function () {
-//     return view('dashboard');
+//     return Inertia::render('Dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
+
+//各Top画面へ
+ Route::get('/mypage', [RLRController::class, 'mypage']);
+
+//Top画面（ユーザー登録画面への遷移）
+Route::get('/', [RLRController::class, 'TOP']);
+Route::get('/register', [RLRController::class, 'register']);
+Route::get('/register/confirm/{user}',[RLRController::class, 'return_register_comfirm']);
+Route::POST('/register/confirm', [RLRController::class, 'register_confirm']);
+Route::get('/register/complete/{user}',[RLRController::class, 'return_register_complete']);
+Route::POST('/register/complete', [RLRController::class, 'register_complete']);
+
+
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/', function () {
-    return view('RLR/myPage');
 });
+
+
+
+
+
+//管理者①
+Route::group(['middleware' => ['auth', 'can:manage1']], function () {
+ Route::get('/1_top', [RLRController::class, 'manage1_top']);
+ Route::get('/1_add', [RLRController::class, 'manage1_add']);
+ Route::get('/1_add/confirm/{user}',[RLRController::class, 'return_1_add_confirm']);
+ Route::POST('/1_add/confirm', [RLRController::class, 'manage1_add_confirm']);
+ Route::get('/1_add/complete/{user}',[RLRController::class, 'return_1_add_complete']);
+ Route::POST('/1_add/complete', [RLRController::class, 'manage1_add_complete']);
+ Route::get('/1_all', [RLRController::class, 'return_1_all']);
+ Route::delete('/1_delete/{user}', [RLRController::class,'manage1_delete']);
+});
+
+//管理者②
+Route::group(['middleware' => ['auth', 'can:manage2']], function () {
+ Route::get('/3_top', [RLRController::class, 'manage2_top']);
+ Route::get('/3_reserve_conditions', [RLRController::class, 'return_3_reserve_conditions']);
+ Route::get('/3_reserve_rooms/{user}', [RLRController::class, 'return_3_reserve_rooms']);
+ Route::POST('/3_reserve_rooms', [RLRController::class, 'manage2_reserve_rooms']);
+ Route::get('/3_reserve_comfirm/{user}', [RLRController::class, 'return_3_reserve_comfirm']);
+ Route::POST('/3_reserve_comfirm', [RLRController::class, 'manage2_reserve_comfirm']);
+ Route::get('/3_reserve_complete/{user}', [RLRController::class, 'return_3_reserve_complete']);
+ Route::POST('/3_reserve_complete', [RLRController::class, 'manage2_reserve_complete']);
+ 
+ Route::get('/3_history', [RLRController::class, 'manage2_history']);
+ Route::delete('/3_cancel/{reserve}', [RLRController::class, 'manage2_cancel']);
+ 
+ Route::get('/3_all_date', [RLRController::class, 'return_3_all_date']);
+ Route::get('/3_all_history/{user}', [RLRController::class, 'return_3_all_history']);
+ Route::POST('/3_all_history', [RLRController::class, 'manage2_all_history']);
+ 
+ Route::get('/3_manage_rooms',[RLRController::class,'return_3_manage_rooms']);
+ Route::get('/3_manage_request',[RLRController::class,'manage2_manage_request']);
+ Route::get('/3_manage_add/{user}', [RLRController::class, 'return_3_manage_add']);
+ Route::POST('/3_manage_add', [RLRController::class, 'manage2_manage_add']);
+ Route::get('/3_manage_complete/{user}', [RLRController::class, 'return_3_manage_complete']);
+ Route::POST('/3_manage_complete', [RLRController::class, 'manage2_manage_complete']);
+ 
+ Route::get('/3_manage_all',[RLRController::class,'manage2_manage_all']);
+ Route::delete('/3_delete/{room}', [RLRController::class,'manage2_delete']);
+});
+
+//一般ユーザー
+Route::group(['middleware' => ['auth', 'can:general']], function () {
+ Route::get('/4_top', [RLRController::class, 'g_top']);
+ Route::get('/g_reserve_conditions', [RLRController::class, 'return_g_reserve_conditions']);
+ Route::POST('/g_reserve_conditions', [RLRController::class, 'g_reserve_conditions']);
+ Route::get('/g_reserve_rooms/{user}', [RLRController::class, 'return_g_reserve_rooms']);
+ Route::POST('/g_reserve_rooms', [RLRController::class, 'g_reserve_rooms']);
+ Route::get('/g_reserve_comfirm/{user}', [RLRController::class, 'return_g_reserve_comfirm']);
+ Route::POST('/g_reserve_comfirm', [RLRController::class, 'g_reserve_comfirm']);
+ Route::get('/g_reserve_complete/{user}', [RLRController::class, 'return_g_reserve_complete']);
+ Route::POST('/g_reserve_complete', [RLRController::class, 'g_reserve_complete']);
+ Route::get('/g_history', [RLRController::class, 'g_history']);
+ Route::delete('/4_cancel/{reserve}', [RLRController::class, 'g_cancel']);
+});
+
+
+
+
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';
 
 
 
-//ログイン画面からマイページに遷移
-// Route::get('/', function () {
-//     return view('RLR/myPage');
-// });
-
-
-
-
-
-//マイページからユーザー登録に遷移
-Route::get('/rlr/register', [RLRController::class, 'register']);
-//ユーザー情報登録
-Route::POST('/rlr/register/confirm',[RLRController::class, 'confirm']);
-Route::get('/rlr/register/confirm/{user}',[RLRController::class, 'confirmUserInfo']);
-Route::POST('/rlr/register/complete',[RLRController::class, 'complete']);
-
-
-//マイページから予約画面に遷移
-Route::get('/rlr/reserve', [RLRController::class, 'reserveDate']);
-//予約画面
-Route::POST('/rlr/reserve/time', [RLRController::class, 'time']);
-Route::POST('/rlr/reserve/room', [RLRController::class, 'room']);
-Route::POST('/rlr/reserve/detail', [RLRController::class, 'detail']);
-Route::POST('/rlr/reserve/confirm', [RLRController::class, 'reserve_confirm']);
-Route::POST('/rlr/reserve/complete', [RLRController::class, 'reserve_complete']);
-
-
-//マイページから予約履歴に遷移
-Route::get('/rlr/history', [RLRController::class, 'history_all']);
-//予約履歴表示・キャンセル
-Route::delete('/rlr/history/cancel/{reserve}', [RLRController::class, 'cancel']);
-
-//管理者画面（日付）
-Route::get('/rlr/manage/date', [RLRController::class, 'manage_date']);
-Route::POST('/rlr/manage/detail', [RLRController::class, 'manage_detail']);

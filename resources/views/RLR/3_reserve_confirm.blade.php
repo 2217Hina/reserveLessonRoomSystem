@@ -2,14 +2,11 @@
     <x-slot name="header">
         　（ヘッダー名）
     </x-slot>
-  
-
+ 
+ 
+  <div class="flex flex-col w-1/2 mt-10 m-auto">
         
-       
-         <main>
-               <div class="flex flex-col w-1/2 mt-10 m-auto">
-        
-                 <form action="/rlr/reserve/complete" method="POST">
+                 <form action="/3_reserve_complete" method="POST">
                      @csrf
                      
                         <div class="text-4xl text-left">
@@ -42,15 +39,10 @@
                                     <div class='room'>
                                         <h2>部屋:{{$reserve["room"]}}</h2>
                                       
-                                        <input name="reserve[room_num]" value={{$reserve["room"]}} type="hidden">
+                                        <input name="reserve[number]" value={{$reserve["room"]}} type="hidden">
                                     </div>
                                     
-                                      <div class='numOfPeople'>
-                                        <h2>人数:{{$reserve["numOfPeople"]}}</h2>
-                                      
-                                        <input name="reserve[numOfPeople]" value={{$reserve["numOfPeople"]}} type="hidden">
-                                    </div>
-                               
+                                     
                                 
                     
                                  
@@ -62,9 +54,7 @@
                              </div>
                          </form>
                          <div class="text-center">
-                            <a href="/rlr/reserve" class="mt-36 text-red-500">再度入力</a>
+                            <a href="/3_reserve_conditions" class="mt-36 text-red-500">再度入力</a>
                         </div>
                  </div>
-    </main>
-     
-     </x-app-layout>
+          </x-app-layout>

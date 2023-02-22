@@ -1,44 +1,43 @@
 <x-app-layout>
     <x-slot name="header">
-        　ユーザー登録
+        　（ヘッダー名）
     </x-slot>
-  
-
-        
-       
-         <main>
-             
-             
-        <div class="flex flex-col w-1/2 mt-10 m-auto">
+ 
+         <div class="flex flex-col w-1/2 mt-10 m-auto">
         
                 <div class="text-3xl w-2/3">   
                      <h1 class="title">この内容で登録しますか？</h1>
                 </div>
         
-                <form action="/rlr/register/complete" method="POST">
+                <form action="/1_add/complete" method="POST">
                      @csrf
                    
                         <div class="m-auto text-3xl w-1/3 mt-12 ">
-                
-                                
-                                <div class='student_num'>
-                                    <h2>学籍番号:{{ $user["student_num"] }}</h2>
+                            
+                                 <div class='name'>
+                                    <h2>氏名:{{ $user["name"] }}</h2>
                                    
-                                     <input name="user[student_num]" value={{ $user["student_num"] }} type="hidden">
+                                     <input name="user[name]" value={{ $user["name"] }} type="hidden">
+                                </div>
+                                
+                                <div class='number'>
+                                    <h2>学籍番号:{{ $user["number"] }}</h2>
+                                   
+                                     <input name="user[number]" value={{ $user["number"] }} type="hidden">
+                                </div>
+                                
+                                <div class='email'>
+                                    <h2>メールアドレス:{{ $user["email"] }}</h2>
+                                   
+                                     <input name="user[email]" value={{ $user["email"] }} type="hidden">
                                 </div>
                                 
                                
-                                <div class='major'>
-                                    <h2>専攻:{{ $user["major"] }}</h2>
-                                  
-                                    <input name="user[major]" value={{ $user["major"] }} type="hidden">
-                                </div>
+                               
                                 
-                                <div class='professor'>
-                                    <h2>門下:{{$user["professor"]}}</h2>
+                               
                                  
-                                    <input name="user[professor]" value={{$user["professor"]}} type="hidden">
-                                </div>
+                                
                                 
                                 
                     
@@ -57,9 +56,6 @@
                 
                  <div class=" text-2xl m-auto">
                     <span class=" text-red-500 rounded-xl ">
-                     <a href="/rlr/register">再度入力</a>
+                     <a href="/register">再度入力</a>
                 </div>
-                
-    </main>
-     
-     </x-app-layout>
+    </x-app-layout>

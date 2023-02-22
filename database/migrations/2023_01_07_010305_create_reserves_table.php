@@ -20,7 +20,6 @@ return new class extends Migration
             $table->date('date');
             $table->time('startTime')->nullable();
             $table->integer('numOfPeople')->nullable();
-           
             $table->boolean('is_reserved')->nullable();
             $table->timestamps();
             $table->softDeletes();

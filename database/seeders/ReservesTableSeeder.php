@@ -15,11 +15,11 @@ class ReservesTableSeeder extends Seeder
      */
     public function run()
     {
-         DB::table('reserves')->insert([
+        DB::table('reserves')->insert([
         
-            'user_id'=> '1',
+            'user_id'=> '5',
             'room_id' => '1',
-            'date'=>'2023-01-31',
+            'date'=>'2023-02-18',
             'startTime'=>'10:00:00',
             'numOfPeople'=>'1',
             'is_reserved'=>'1'
@@ -30,7 +30,7 @@ class ReservesTableSeeder extends Seeder
         
             'user_id'=> '2',
             'room_id' => '2',
-            'date'=>'2023-02-01',
+            'date'=>'2023-02-17',
             'startTime'=>'10:00:00',
              'numOfPeople'=>'3',
             'is_reserved'=>'1'
@@ -40,7 +40,7 @@ class ReservesTableSeeder extends Seeder
         
             'user_id'=> '3',
             'room_id' => '3',
-            'date'=>'2023-02-04',
+            'date'=>'2023-02-20',
             'startTime'=>'10:00:00',
              'numOfPeople'=>'2',
             'is_reserved'=>'1'
@@ -50,7 +50,7 @@ class ReservesTableSeeder extends Seeder
         
             'user_id'=> '4',
             'room_id' => '4',
-            'date'=>'2023-02-05',
+            'date'=>'2023-02-21',
             'startTime'=>'10:00:00',
              'numOfPeople'=>'1',
             'is_reserved'=>'1'
@@ -60,7 +60,7 @@ class ReservesTableSeeder extends Seeder
         
             'user_id'=> '5',
             'room_id' => '4',
-            'date'=>'2023-02-06',
+            'date'=>'2023-02-27',
             'startTime'=>'10:00:00',
              'numOfPeople'=>'3',
             'is_reserved'=>'1'
@@ -70,7 +70,7 @@ class ReservesTableSeeder extends Seeder
         
             'user_id'=> '6',
             'room_id' => '6',
-            'date'=>'2023-02-07',
+            'date'=>'2023-02-25',
             'startTime'=>'10:00:00',
              'numOfPeople'=>'2',
             'is_reserved'=>'1'
@@ -79,9 +79,9 @@ class ReservesTableSeeder extends Seeder
            
             DB::table('reserves')->insert([
         
-            'user_id'=> '1',
+            'user_id'=> '8',
             'room_id' => '1',
-            'date'=>'2023-01-27',
+            'date'=>'2023-02-22',
             'startTime'=>'10:00:00',
             'numOfPeople'=>'1',
             'is_reserved'=>'1'
@@ -89,9 +89,9 @@ class ReservesTableSeeder extends Seeder
             
             DB::table('reserves')->insert([
         
-            'user_id'=> '1',
+            'user_id'=> '2',
             'room_id' => '2',
-            'date'=>'2023-01-27',
+            'date'=>'2023-02-23',
             'startTime'=>'10:00:00',
             'numOfPeople'=>'1',
             'is_reserved'=>'1'
