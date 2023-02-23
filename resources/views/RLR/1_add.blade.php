@@ -1,43 +1,59 @@
 <x-app-layout>
     <x-slot name="header">
-        　（ヘッダー名）
+        　管理者情報登録
     </x-slot>
  
         
-         <div class="flex flex-col w-1/2 mt-10 m-auto">
-                    
-                <div class="text-4xl w-72 ">
-                     
-                     <h1>管理者情報登録</h1>
-                 
-                </div>
-              
+         <div class="h-full w-full flex items-center justify-center bg-blue-50">
+            <div class="m-auto text-2xl  ">
+                 <div class="border border-solid pt-14 px-8 mt-20 mb-20 bg-white rounded-xl">
+                            <div class="text-center text-xl mb-5 font-bold">
+                                <h1>管理者情報登録</h1>
+                            </div>
+               
+                            <div class="m-auto">
                                 <form action="/1_add/confirm" method="POST">
                                      @csrf          
                                      
-                                             <div class="text-blue-500">
-                                                <h2>氏名</h2>
-                                                <input type="text" name="user[name]"  value="{{ old('user.name') }}">
-                                                 <p class="name__error" style="color:red">{{ $errors->first('user.name') }}</p>
+                                             <div class="mb-5">
+                                                <div class="float-left w-32 mr-5 border-l-4">
+                                                    <label>氏名</label>
+                                                </div>
+                                                <input type="text" name="user[name]"  placeholder="例）山田太郎" value="{{ old('user.name') }}">
+                                                 <div class="text-xs">
+                                                     <p class="name__error" style="color:red">{{ $errors->first('user.name') }}</p>
+                                                 </div>
                                             </div>
                                             
-                                            <div class="number">
-                                                <h2>学籍番号</h2>
-                                                <input type="text" name="user[number]" placeholder="21180122" value="{{ old('user.number') }}">
-                                                 <p class="number__error" style="color:red">{{ $errors->first('user.number') }}</p>
+                                            <div class="mb-5">
+                                                <div class="float-left w-32 mr-5 border-l-4">
+                                                     <label>教授番号</label>
+                                                </div> 
+                                                <input type="text" name="user[number]" placeholder="半角数字" value="{{ old('user.number') }}">
+                                                <div class="text-xs">
+                                                     <p class="number__error" style="color:red">{{ $errors->first('user.number') }}</p>
+                                                </div>
                                             </div>
                                             
-                                             <div class="email">
-                                                <h2>メールアドレス</h2>
-                                                <input type="text" name="user[email]"  value="{{ old('user.email') }}">
-                                                 <p class="email__error" style="color:red">{{ $errors->first('user.email') }}</p>
+                                             <div class="mb-5">
+                                                 <div class="float-left w-32 mr-5 border-l-4">
+                                                     <label>メール</label>
+                                                 </div>
+                                                <input type="text" name="user[email]"  placeholder="例）abc@xyz" value="{{ old('user.email') }}">
+                                                 <div class="text-xs">
+                                                     <p class="email__error" style="color:red">{{ $errors->first('user.email') }}</p>
+                                                 </div>
                                             </div>
                                              
                                            
-                                             <div class="password">
-                                                <h2>パスワード</h2>
-                                                <input type="text" name="password"  value="{{ old('password') }}">
-                                                 <p class="password__error" style="color:red">{{ $errors->first('password') }}</p>
+                                             <div class="mb-5">
+                                                <div class="float-left w-32 mr-5 border-l-4">
+                                                     <label>パスワード</label>
+                                                </div>
+                                                <input type="text" name="password"  placeholder="例）パスワード" value="{{ old('password') }}">
+                                                 <div class="text-xs">
+                                                     <p class="password__error" style="color:red">{{ $errors->first('password') }}</p>
+                                                 </div>
                                             </div>
                                             
                                             
@@ -47,14 +63,13 @@
                                              
                                             
                                             </div>
-                        
-                        <div class=" text-4xl  text-right mt-36 ">
-                        <span class="border border-indigo-600 rounded-xl bg-blue-200">
-                            <input type="submit" value="登録"/>
-                            
-                        </span>
+                         <div class="text-center mb-10">
+                            <span class="m-auto mt-10 px-5 py-2">
+                                    <input class=" border rounded-xl mt-10 bg-yellow-400 px-5 py-2 shadow-md" type="submit" value="登録"/>
+                            </span>
                         </div>
-                    
+                                  
+                       
                 </form>
                 
                 

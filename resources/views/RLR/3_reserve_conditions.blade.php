@@ -6,20 +6,22 @@ use Carbon\Carbon;
 
 <x-app-layout>
     <x-slot name="header">
-        　（ヘッダー名）
+        　練習室予約
     </x-slot>
  
-        
-         <div class="reserve_conditions">
+    <div class="h-full w-full flex items-center justify-center text-center">
+       <div class="m-auto text-2xl  ">
+          
+            
+                
 
-            <form action="/3_reserve_rooms" method="POST">
-                @csrf
-                    <div class="text-4xl text-left">
+             <form action="/3_reserve_rooms" method="POST">
+                     @csrf
+                 <div class="border border-solid pt-14 px-8 mt-10 mb-5 bg-white rounded-xl text-center">   
+                    <div class="text-center text-xl mb-5 font-bold">
                         <h2>予約する【日付】を選択してくだい</h2>
                     </div>
-                     <div class="text-2xl text-left">
-                        <p>(１週間後まで予約できます)</p>
-                    </div>
+                     
             
 
                      <select name="reserve[date]" >
@@ -48,7 +50,9 @@ use Carbon\Carbon;
                             </option>
                      </select>
            
-                   
+                   <div class="text-center text-xs mb-5 font-bold">
+                        <p>(１週間後まで予約できます)</p>
+                    </div>
  
               
            
@@ -58,11 +62,12 @@ use Carbon\Carbon;
         
         <div class="time">
             
-              
-                            <div class="text-4xl text-left">
+           <div class="border border-solid pt-14 px-8 mt-5 mb-10 bg-white rounded-xl text-center">  
+                            <div class="text-center text-xl mb-5 font-bold">
                                  <h2>予約する【時間】を選んでください</h2>
                             </div>
-                         
+                                
+                                <div class="mb-2">
                                   <select name="reserve[startTime]" >
                                         <option value="10:00:00">
                                           10:00~
@@ -88,20 +93,20 @@ use Carbon\Carbon;
                                           17:00~
                                         </option>
                                  </select>
-                      
-             
+                             </div>
+               </div>
                
         </div>
         
                 
-                     <input class="mt-20 text-xl border border-indigo-600 bg-blue-2" type="submit" value="次へ（部屋の選択）"/>
+                     <input class="text-xs border rounded-xl my-10 bg-red-100 px-5 py-2 shadow-md m-auto"  type="submit" value="次へ（部屋の選択）"/>
                    
                    
                      </form>
                      
                      
          </div>
-                   
-        
+        </div>            
+      </div>   
         
     </x-app-layout>
