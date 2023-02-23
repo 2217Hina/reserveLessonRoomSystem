@@ -31,7 +31,7 @@
                   <div class="mb-5 flex-col">
                       
                                    <div class="flex-row py-5 px-5">
-                                         <div class="float-left w-32 mr-5 border-l-4">
+                                         <div class="float-left w-24 mr-5 border-l-4">
                                           <label>氏名</label>
                                          </div>
                                         <h2 class="truncate">{{ $user["name"] }}</h2>
@@ -41,14 +41,14 @@
                                     
                                     
                                    <div class="flex-row py-5 px-5">
-                                        <div class="float-left w-32 mr-5 border-l-4">
+                                        <div class="float-left w-24 mr-5 border-l-4">
                                           <label>学籍番号</label>
                                         </div>
                                        <h2 class="truncate">{{ $user["number"] }}</h2>
                                     </div>
                                     
                                      <div class="flex-row py-5 pl-5">
-                                       <div class="float-left w-32 mr-5 border-l-4">
+                                       <div class="float-left w-24 mr-5 border-l-4">
                                           <label>メール</label>
                                       </div>
                                         <h2 class="truncate">{{ $user["email"] }}</h2>
@@ -56,7 +56,7 @@
                                     
                                     
                                      <div class="flex-row py-5 px-5">
-                                         <div class="float-left w-32 mr-5 border-l-4">
+                                         <div class="float-left w-24 mr-5 border-l-4">
                                           <label>専攻</label>
                                           </div>
                                        <h2 class="truncate">{{ $user["major"] }}</h2>

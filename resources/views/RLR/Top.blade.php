@@ -8,10 +8,34 @@
          @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     
-    <body　class="bg-blue-50">
+    <body  class="bg-blue-50">
        
-       
-       
+       <header class="w-full h-13 bg-blue-100 text-center">
+                <div class="inline-block mt-2 mb-2 text-xl">
+                    <h1>
+                          <a href="/register">TOP</a></a>
+        　           </h1> 
+　               </div>
+　               
+        </header>
+       <div class="h-full w-full flex text-left bg-blue-50 flex-col">
+         <div class=" text-2xl">
+                     <h2>
+                        <div class="mt-10 ml-5">
+                            <span class="border rounded-xl bg-green-100 px-5 py-2 shadow-md">
+                              <a href="/register">ユーザー登録</a>
+    　                      </span>
+                        </div>
+            　    　</h2> 
+    　              <h2>
+                        <div class="mt-5 ml-5">
+                            <span class="border rounded-xl bg-red-100 px-5 py-2 shadow-md">
+                　           <a class="text-left" href="/login">ログイン</a>
+                　            </span>
+                        </div>
+            　    　</h2> 
+　       
+　          </div>
    
         <div class="text-blue-500 mt-10">
             <h2>・ユーザー登録をして、ログイン後のマイページから予約を行なってください</h2>
@@ -19,19 +43,7 @@
         </div>
        
        
-        <div class="block text-center leading-10 w-96 h-10 rounded-md bg-blue-50　duration-75">
-                 <div class="text-gray-800 inline-block mt-2 mb-2 text-xl">
-                    <h1>
-                          <a href="/register">ユーザー登録</a>
-        　           </h1> 
-　               </div>
-　               <div class="text-gray-800 inline-block mt-2 mb-2 text-xl">
-            　       <h1>
-            　           <a class="text-left" href="/login">ログイン</a>
-            　       </h1>
-　       
-　               </div>
-        </div>
+        
     
    </body>
     

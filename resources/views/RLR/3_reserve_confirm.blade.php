@@ -1,43 +1,55 @@
 <x-app-layout>
     <x-slot name="header">
-        　（ヘッダー名）
+        　練習室予約
     </x-slot>
  
  
-  <div class="flex flex-col w-1/2 mt-10 m-auto">
+   <div class="h-full w-full flex items-center justify-center">
+         
+              
+         <div class="m-auto text-2xl">
+             <div class="w-96 border border-solid pt-14 px-8 mt-20 mb-20 bg-white rounded-xl">
         
-                 <form action="/3_reserve_complete" method="POST">
-                     @csrf
-                     
-                        <div class="text-4xl text-left">
-                            <h1 class="title">この内容で登録しますか？</h1>
+                       <div class="text-center text-xl mb-5 font-bold">
+                             <h1 class="title">この内容で登録しますか？</h1>
                         </div>
                         
-                        <div class="text-left">
-                               <div class="m-auto text-2xl w-1/3 mt-12 ">
+                        
+                <div class="m-auto">
+                    
+                    <form action="/3_reserve_complete" method="POST">
+                     @csrf
+                        
+                        <div class="mb-5 flex-col">
                 
                                      <div class='user_id'>
-                                       
-                                      
-                                         <input name="reserve[user_id]" value={{ Auth::id() }} type="hidden">
+                                        <input name="reserve[user_id]" value={{ Auth::id() }} type="hidden">
                                     </div>
                     
                     
-                                     <div class='date'>
-                                        <h2>日付:{{ $reserve["date"] }}</h2>
-                                     
-                                         <input name="reserve[date]" value={{ $reserve["date"] }} type="hidden">
+                                     <div class="flex-row py-5 px-5">
+                                             <div class="float-left w-24 mr-5 border-l-4">
+                                                <label>日付</label>
+                                             </div>
+                                            <h2 class="truncate">{{ $reserve["date"] }}</h2>
+                                            <input name="reserve[date]" value={{ $reserve["date"] }} type="hidden">
                                     </div>
                                     
                                    
-                                    <div class='time'>
-                                        <h2>時間:{{ $reserve["startTime"] }}~</h2>
+                                     <div class="flex-row py-5 px-5">
+                                             <div class="float-left w-24 mr-5 border-l-4">
+                                                <label>時間</label>
+                                             </div>
+                                            <h2 class="truncate">{{ $reserve["startTime"] }}~</h2>
                                       
                                         <input name="reserve[startTime]" value={{ $reserve["startTime"] }} type="hidden">
                                     </div>
                                     
-                                    <div class='room'>
-                                        <h2>部屋:{{$reserve["room"]}}</h2>
+                                     <div class="flex-row py-5 px-5">
+                                             <div class="float-left w-24 mr-5 border-l-4">
+                                                <label>部屋</label>
+                                             </div>
+                                            <h2 class="truncate">{{$reserve["room"]}}</h2>
                                       
                                         <input name="reserve[number]" value={{$reserve["room"]}} type="hidden">
                                     </div>
@@ -46,15 +58,21 @@
                                 
                     
                                  
-                    <div class="text-center">
-                              
-                                <input class="mt-20  text-xl border border-indigo-600 bg-blue-2" type="submit" value="予約を確定" />
+                                <div class="text-center my-10">
+                                        <span class="m-auto border rounded-xl mt-10 bg-yellow-400 px-5 py-2 shadow-md">
+                                          
+                                            <input  type="submit" value="予約を確定" />
+                                        </span>
+                                         <span class="text-xs m-auto border rounded-xl mt-10 bg-red-400 px-5 py-2 shadow-md">
+                                             <a href="/3_reserve_conditions">再度入力</a>
+                                         </span>
+                                </div>
+                         </div>
+                     </form>
+                         
+                         
                    
-                </div>
-                             </div>
-                         </form>
-                         <div class="text-center">
-                            <a href="/3_reserve_conditions" class="mt-36 text-red-500">再度入力</a>
-                        </div>
                  </div>
+          </div>
+       </div>
           </x-app-layout>

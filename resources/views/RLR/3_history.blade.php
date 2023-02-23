@@ -6,58 +6,75 @@ use Carbon\Carbon;
 
 <x-app-layout>
     <x-slot name="header">
-        　（ヘッダー名）
+        　予約履歴
     </x-slot>
  
         
-       <div class="flex flex-col w-1/2 mt-10 m-auto">
-                  
-                   <div class="text-3xl w-2/3">   
-                    <h1 class="title">予約履歴</h1>
+                <h2>
+                    <div class="mt-5 ml-5">
+                        <span class="border rounded-xl bg-indigo-100 px-5 py-2 shadow-md">
+                            <a href="/mypage" class="mt-36 text-gray-900">トップページに戻る</a>
+                        </span>
                     </div>
-                    
-                    <div class=" text-2xl mt-10 m-auto">
-                        <span class=" text-blue-500 rounded-xl ">
-                      <a href="/mypage">マイページに戻る</a>
-            　    　</h2> 
-            　    　</span>
-                     </div>
+        　    　</h2> 
+        　    　<div class="mt-5 ml-5">
+                <h2>・【キャンセル】ボタンから予約をキャンセルできます</h2>              
+       
                   
-                <div class='mt-10'>
+                <div class="flex flex-col w-1/2 mt-10 m-auto">
+       
+                     <div class='mt-5'>
                     
                      @foreach ($my_reserves as $my_reserve)
                        @if($my_reserve['date']>$now)
-                        <div class='mt-10 border border-blue-600 bg-white'>
-                            <h1 class='date'>{{ $my_reserve->date }}　{{ $my_reserve->startTime }}〜</h1>
-                            <h1 class='room'>{{ $my_reserve->room_id }}</h1>
-                            <h1 class='numOfPeople'>{{ $my_reserve->numOfPeople }}人</h1>
-                            
+                       
+                        <div class='my-5 border border-blue-600 bg-white'>
+                               <div class="flex-row py-2 px-5">
+                                        <div class="float-left w-32 mr-5 border-l-4">
+                                            <label class='w-40 p-2 truncate'>日時</label>
+                                        </div>          
+                                        <h2>{{ $my_reserve->date }}　{{ $my_reserve->startTime }}〜</h2>
+                                </div>
+                                
+                                 <div class="flex-row py-2 px-5">
+                                        <div class="float-left w-32 mr-5 border-l-4">
+                                            <label class='w-40 p-2 truncate'>部屋</label>
+                                        </div>    
+                                         <h2>{{ $my_reserve['room']->number }}</h2>
+                                </div>
+                        
                             <!--キャンセル機能-->
-                            <div class="text-right">
+                            <div class="text-right p-2">
                             <form action="/3_cancel/{{ $my_reserve->id }}" id="form_{{ $my_reserve->id }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button class="border border-black bg-black-200 rounded-xl" type="button" onclick="cancel({{ $my_reserve->id }})">キャンセル</button> 
+                                <button class="border border-solid border-gray-800 rounded-sm shadow-md text-gray-800 bg-gray-100" type="button" onclick="cancel({{ $my_reserve->id }})">キャンセル</button> 
                             </form>
                             </div>
                         </div>
                         
                       @else
-                       <div class='mt-10 border border-yellow-600  bg-white'>
-                        <h2 class='date'>{{ $my_reserve->date }}　{{ $my_reserve->startTime }}〜</h2>
-                        <h2 class='room'>{{ $my_reserve->room_id }}</h2>
-                        <h2 class='numOfPeople'>{{ $my_reserve->numOfPeople }}人</h2>
-                        </div>
+                       
+                      <div class='my-5 border border-blue-600 bg-white'>
+                               <div class="flex-row py-2 px-5">
+                                        <div class="float-left w-32 mr-5 border-l-4">
+                                            <label class='w-40 p-2 truncate'>日時</label>
+                                        </div>          
+                                        <h2>{{ $my_reserve->date }}　{{ $my_reserve->startTime }}〜</h2>
+                                </div>
+                                
+                                 <div class="flex-row py-2 px-5">
+                                        <div class="float-left w-32 mr-5 border-l-4">
+                                            <label class='w-40 p-2 truncate'>部屋</label>
+                                        </div>    
+                                         <h2>{{ $my_reserve['room']->number }}</h2>
+                                </div>
+                         </div>    
                        @endif
                       @endforeach
                  </div>
                  
-                   <div class=" text-2xl mt-10 m-auto">
-                        <span class=" text-blue-500 rounded-xl ">
-                      <a href="/mypage">マイページに戻る</a>
-            　    　</h2> 
-            　    　</span>
-                     </div>
+                  
                 <script>
                     function cancel(id) {
                         'use strict'
