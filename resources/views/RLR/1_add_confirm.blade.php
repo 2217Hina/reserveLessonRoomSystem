@@ -50,8 +50,10 @@
                                 <span class="m-auto border rounded-xl mt-10 bg-yellow-400 px-5 py-2 shadow-md">
                                     <input type="submit" value="登録" />
                                 </span>
-                                <span class="text-xs m-auto border rounded-xl mt-10 bg-red-400 px-5 py-2 shadow-md">
-                                    <a href="/register">再度入力</a>
+                            </div>
+                            <div class="text-center mb-10">
+                                <span class="m-auto border rounded-xl mt-10 bg-red-200 px-5 py-2 shadow-md">
+                                    <a href="/1_add">再度入力</a>
                                 </span>
                             </div>
                   

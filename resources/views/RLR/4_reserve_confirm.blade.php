@@ -58,7 +58,9 @@
                                           
                                             <input  type="submit" value="予約を確定" />
                                         </span>
-                                         <span class="text-xs m-auto border rounded-xl mt-10 bg-red-400 px-5 py-2 shadow-md">
+                                </div>
+                                <div class="text-center mb-10">
+                                         <span class="m-auto border rounded-xl mt-10 bg-red-200 px-5 py-2 shadow-md">
                                              <a href="/3_reserve_conditions">再度入力</a>
                                          </span>
                                 </div>

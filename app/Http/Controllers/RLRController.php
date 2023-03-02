@@ -20,6 +20,7 @@ use App\Models\Room;
 use Carbon\Carbon;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\ManagerRequest;
+use App\Http\Requests\RequestRequest;
 use App\Http\Requests\ManageRoomsRequest;
 use App\Http\Requests\ManageRoomsDetailRequest;
 use Illuminate\Support\Facades\Gate;
@@ -104,7 +105,7 @@ class RLRController extends Controller
     }
     
      //管理者情報登録画面
-     public function manage1_add_confirm(Request $request, User $user)
+     public function manage1_add_confirm(RegisterRequest $request, User $user)
     {
         $input = $request['user'];
         $password = $request['password'];
@@ -147,7 +148,7 @@ class RLRController extends Controller
               
               $infos[] = array(
                   "id" => $id,
-                  "name" => $number,
+                  "name" => $name,
                   "number" => $number,
                   "email" => $email
                   );
@@ -312,7 +313,7 @@ class RLRController extends Controller
         return view('RLR/3_manage_add');
     }
     
-    public function manage2_manage_add(Request $request)
+    public function manage2_manage_add(RequestRequest $request)
     {
         $input = $request['request'];
         return view('RLR/3_manage_add')->with(['request'=>(int)$input]);

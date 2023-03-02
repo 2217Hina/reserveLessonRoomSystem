@@ -25,12 +25,12 @@
        <div class="m-auto text-2xl  ">
            <div class="border border-solid pt-14 px-8 mt-20 mb-20 bg-white rounded-xl">
                                 <div class="text-center text-xl mb-5 font-bold">
-                                <h1>個人情報入力</h1>
+                                     <h1>個人情報入力</h1>
                                 </div>
                                 
                                 <div class="m-auto">
-                                 <form action="/register/confirm" method="POST">
-                                     @csrf     
+                                    <form action="/register/confirm" method="POST">
+                                        @csrf     
                                      
                                     
                                              <div class="mb-5">

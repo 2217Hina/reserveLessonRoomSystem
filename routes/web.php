@@ -31,7 +31,7 @@ use App\Http\Controllers\RLRController;
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 //各Top画面へ
- Route::get('/mypage', [RLRController::class, 'mypage']);
+ Route::get('/mypage', [RLRController::class,'mypage']);
 
 //Top画面（ユーザー登録画面への遷移）
 Route::get('/', [RLRController::class, 'TOP']);

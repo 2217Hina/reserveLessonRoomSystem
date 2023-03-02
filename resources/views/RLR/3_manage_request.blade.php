@@ -19,7 +19,9 @@
                                      <div class="my-5">
                                        
                                         <input type="text" name="request" placeholder="半角数字を入力" value="{{ old('request') }}">
-                                         <p class="request__error" style="color:red">{{ $errors->first('request') }}</p>
+                                         <div class="text-xs">
+                                            <p class="request__error" style="color:red">{{ $errors->first('request') }}</p>
+                                         </div>   
                                     </div>
                                 
                             

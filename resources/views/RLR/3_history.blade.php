@@ -28,7 +28,7 @@ use Carbon\Carbon;
                      @foreach ($my_reserves as $my_reserve)
                        @if($my_reserve['date']>$now)
                        
-                        <div class='my-5 border border-blue-600 bg-white'>
+                        <div class='my-5 border border-yellow-600 bg-white'>
                                <div class="flex-row py-2 px-5">
                                         <div class="float-left w-32 mr-5 border-l-4">
                                             <label class='w-40 p-2 truncate'>日時</label>
