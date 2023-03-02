@@ -56,21 +56,28 @@
                                                  </div>
                                             </div>
                                             
-                                            
+                                            <div class="mb-5">
+                                                
+                                                    <div class="float-left w-32 mr-5 border-l-4">
+                                                  <label classs="w-32 mr-5 border border-solid border-l-4">パスワード（確認用）</label>
+                                                 </div>
+                                                <input name="password_confirmation" type="text"  placeholder="パスワード（確認用）"　value="{{ old('password') }}">
+                                                
+                                            </div>
                                            
                                             
                                            
                                              
                                             
-                                            </div>
-                         <div class="text-center mb-10">
-                            <span class="m-auto mt-10 px-5 py-2">
-                                    <input class=" border rounded-xl mt-10 bg-yellow-400 px-5 py-2 shadow-md" type="submit" value="登録"/>
-                            </span>
-                        </div>
+                                           
+                                             <!--<div class="text-center mb-10">-->
+                                             <!--   <span class=" px-5 py-2">-->
+                                                        <input class=" border rounded-xl mt-10 bg-yellow-400 px-5 py-2 shadow-md mb-2" type="submit" value="登録"/>
+                                            <!--    </span>-->
+                                            <!--</div>-->
                                   
                        
-                </form>
+                                 </form>
                 
                 
         

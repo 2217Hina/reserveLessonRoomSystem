@@ -18,30 +18,34 @@
 　               </div>
 　               
         </header>
-       <div class="h-full w-full flex text-left bg-blue-50 flex-col">
-         <div class=" text-2xl">
+       <div class="h-full w-full flex items-center justify-center mt-20">   
+         <div class=" text-2xl text-center justify-center items-center">
+    
                      <h2>
-                        <div class="mt-10 ml-5">
+                        <div class="mt-5 ml-5">
                             <span class="border rounded-xl bg-green-100 px-5 py-2 shadow-md">
-                              <a href="/register">ユーザー登録</a>
-    　                      </span>
+                              <a  class="text-center" href="/register">ユーザー登録</a>
+    　                     </span>
                         </div>
-            　    　</h2> 
-    　              <h2>
+            　      　</h2> 
+                     <h2>
                         <div class="mt-5 ml-5">
                             <span class="border rounded-xl bg-red-100 px-5 py-2 shadow-md">
-                　           <a class="text-left" href="/login">ログイン</a>
-                　            </span>
+                　                <a class="text-center" href="/login">ログイン</a>
+            　                </span>
                         </div>
-            　    　</h2> 
-　       
-　          </div>
-   
-        <div class="text-blue-500 mt-10">
+            　      　</h2> 
+            </div>
+      </div>
+      
+      
+    <div class="h-full w-full flex items-center justify-center mt-20">   
+         <div class=" text-2xl">
+        
             <h2>・ユーザー登録をして、ログイン後のマイページから予約を行なってください</h2>
             <h2>・予約のキャンセルは、『予約履歴一覧』から行います</h2>
         </div>
-       
+      </div>  
        
         
     
