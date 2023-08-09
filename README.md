@@ -34,7 +34,7 @@
 * JavaScript
 * MariaDB
 
-# フレームワーク
+## フレームワーク
 * Laravel9
 * TailWindCSS
 * Mysql
